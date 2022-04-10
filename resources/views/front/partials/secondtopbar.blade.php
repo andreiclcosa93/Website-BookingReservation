@@ -30,7 +30,13 @@
                                 <ul>
                                     @auth
 
-                                    <li><a href="#">Logout</a></li>
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}" id="logout-form" class="d-none">
+                                            @csrf
+                                        </form>
+                                        <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+                                        href="#">Logout</a>
+                                    </li>
                                     @endauth
                                     @guest
 

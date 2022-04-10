@@ -11,6 +11,7 @@
 
     </header>
     <!-- Header End -->
+    @include('admin.partials.messages')
 
     <!-- Hero Section Begin -->
     <section class="hero-section">

@@ -33,6 +33,14 @@ class LoginRequest extends FormRequest
             'password' => ['required', 'string'],
         ];
     }
+    public function messages()
+    {
+        return [
+            'email.email' => 'Trebuie sa introduceti o adresa de email valida',
+            'email.required'=>'Trebuie sa introduceti o adresa de email valida',
+            'password.required' => 'Trebuie sa completati parola pentru cont',
+        ];
+    }
 
     /**
      * Attempt to authenticate the request's credentials.

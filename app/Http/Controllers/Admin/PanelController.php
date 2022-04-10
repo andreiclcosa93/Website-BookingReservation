@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class PanelController extends Controller
 {
-    //afisam pagina principala din Dashboar
-    public function showDashboard()
+    //afisam vederea principala a panoului de administrare
+    public function showPanel()
     {
         return view('admin.dashboard');
-
     }
 }

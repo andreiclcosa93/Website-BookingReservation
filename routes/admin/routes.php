@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Front\PagesController;
+use App\Http\Controllers\Admin\PanelController;
 
-// Route::get('home',[PagesController::class,'homePage']);
+Route::middleware('supervisor')->prefix('administration')->name('admin.')->group(function(){
+    Route::get('panel',[PanelController::class,'showPanel'])->name('panel');
+});
+
+

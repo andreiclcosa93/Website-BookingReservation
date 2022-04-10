@@ -36,13 +36,23 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'phone'=>['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        ],
+    [
+        'name.required'=>'Trebuie sa completati numele de utilizator',
+        'name.max'=>'Numele de utilizator nu poate avea mai mult de 255 de caractere',
+        'password.confirmed'=>'Nu ati confirmat corect parola',
+        'email.unique'=>'Aceasta adresa este deja inregistrata pe site'
+
+
+    ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'phone'=>$request->phone,
             'password' => Hash::make($request->password),
         ]);
 
@@ -50,6 +60,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        // return redirect(RouteServiceProvider::HOME);
+        return redirect(route('home'));
     }
 }
