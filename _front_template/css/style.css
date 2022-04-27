@@ -388,10 +388,16 @@ ul, ol {
 }
 .menu-item .logo {
 	padding: 25px 0;
+
 }
 .menu-item .logo a {
 	display: inline-block;
 }
+
+.menu-item .logo a  {
+	color:red;
+}
+
 .menu-item .nav-menu {
 	text-align: right;
 }
@@ -719,7 +725,7 @@ ul, ol {
 	transition: all 0.3s;
 }
 /*------------------------
-  Home Page Room Section 
+  Home Page Room Section
 -------------------------*/
 
 .hp-room-items {

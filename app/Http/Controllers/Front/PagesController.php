@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
+use App\Models\Room;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PagesController extends Controller
 {
@@ -11,5 +12,13 @@ class PagesController extends Controller
     {
         return view('front.home');
         // return 'home page';
+    }
+
+
+    public function roomsPage()
+    {
+        $rooms=Room::where('active',true)->orderBy('position')->get();
+        return view('front.rooms')
+        ->with('rooms',$rooms);
     }
 }

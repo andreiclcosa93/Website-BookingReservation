@@ -2,12 +2,22 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
-                <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link" href="index.html">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Dashboard
+                <div class="sb-sidenav-menu-heading">Meniu Principal</div>
+                <a class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' :'' }}" href="{{ route('admin.users.list') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i> </div>
+                    Utilizatori
                 </a>
-                <div class="sb-sidenav-menu-heading">Interface</div>
+                <div class="sb-sidenav-menu-heading">Hotel</div>
+
+                <a class="nav-link {{ request()->routeIs('admin.rooms.*') ? 'active' :'' }}" href="{{ route('admin.rooms.list') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i> </div>
+                    Camere
+                </a>
+                <a class="nav-link {{ request()->routeIs('admin.facilities.*') ? 'active' :'' }}" href="{{ route('admin.facilities.list') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i> </div>
+                    Facilitati
+                </a>
+
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Layouts
@@ -62,7 +72,7 @@
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Logged in as: &nbsp; {{ auth()->user()->name }} </div>
+            <div class="small">Conectat ca: &nbsp; {{ auth()->user()->name }} </div>
             {{-- Dashboard --}}
         </div>
     </nav>

@@ -2,8 +2,8 @@
     <!DOCTYPE html>
     <html lang="en">
     @include('admin.partials.head')
-    
-    
+
+
     <body class="sb-nav-fixed">
         {{-- includem bara de sus cu search --}}
         @include('admin.partials.topbar')
@@ -18,6 +18,7 @@
            <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
+                    @include('admin.partials.messages')
                     @yield('content')
                 </div>
             </main>
@@ -25,6 +26,6 @@
         </div>
 
        @include('admin.partials.scripts')
-       
+
     </body>
 </html>

@@ -297,8 +297,9 @@ ul, ol {
 .top-nav .tn-left li:last-child:after {
 	display: none;
 }
+/* culoarea icon-urilor e setata din html */
 .top-nav .tn-left li i {
-	color: #dfa974;
+
 	margin-right: 4px;
 }
 .top-nav .tn-right {
@@ -315,6 +316,14 @@ ul, ol {
 	color: #19191a;
 	margin-left: 15px;
 }
+
+/* de adaugat efect la icon */
+
+.top-nav .tn-right .top-social a:hover{
+    color:#ffffff;
+    font-size: 20px;
+}
+
 .top-nav .tn-right .bk-btn {
 	display: inline-block;
 	font-size: 13px;
@@ -353,7 +362,7 @@ ul, ol {
 	position: absolute;
 	left: 0;
 	top: 60px;
-	width: 100px;
+	width: 150px;
 	background: #ffffff;
 	display: block;
 	padding: 10px 15px;
@@ -719,7 +728,7 @@ ul, ol {
 	transition: all 0.3s;
 }
 /*------------------------
-  Home Page Room Section 
+  Home Page Room Section
 -------------------------*/
 
 .hp-room-items {
@@ -2197,6 +2206,8 @@ ul, ol {
 		color: #19191a;
 		margin-right: 20px;
 	}
+
+
 	.offcanvas-menu-wrapper .top-social a:last-child {
 		margin-right: 0;
 	}
@@ -2335,3 +2346,4 @@ ul, ol {
 		margin-bottom: 10px;
 	}
 }
+/* cosaandrei */
