@@ -1,8 +1,8 @@
 @extends('admin.template')
 
 @section('content')
-<h1>Camerele hotelului</h1>
-<a href="{{ route('admin.rooms.add') }}" class="btn btn-primary">Adauga camera</a>
+<br><h1 style="text-align: center;">Camerele hotelului</h1>
+<a href="{{ route('admin.rooms.add') }}" class="btn btn-dark btn-lg">Adauga camera</a><br><br><br>
 <div class="row">
     @forelse ($rooms as $room)
 <div class="col-md-4">
@@ -20,9 +20,12 @@
     <b>Pozitie pagina:</b>{{ $room->position }}<br>
     </p>
         </div>
-        <div class="card-footer">
-            <a href="{{ route('admin.rooms.edit',['id'=>$room->id]) }}" class="btn btn-success float-end">Edit</a>
-            <a href="{{ route('admin.rooms.photos.edit',['id'=>$room->id]) }}" class="btn btn-success float-end"><i class="fas fa-images"></i>Photos</a>
+        <div class="card-footer d-flex justify-content-between">
+            <a href="{{ route('admin.rooms.edit',['id'=>$room->id]) }}" class="btn btn-warning float-end">Edit</a>
+            <div>
+            <a href="{{ route('admin.rooms.photos.edit',['id'=>$room->id]) }}" class="btn btn-success"><i class="fas fa-images"></i>Photos</a>
+            <a href="{{ route('admin.room.facilities',['id'=>$room->id]) }}" class="btn btn-success"><i class="fas fa-images"></i>Facilities</a>
+            </div>
             <form action="{{ route('admin.rooms.delete',$room->id) }}" class="d-none" id="form-delete-{{ $room->id }}" method="POST">
                 @csrf
                 @method('delete')

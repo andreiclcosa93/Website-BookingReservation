@@ -30,4 +30,10 @@ class Room extends Model
     {
         return $this->hasMany(Photo::class,'room_id','id')->where('visible',true)->orderBy('order');
     }
+
+    //relatia many-to-many cu facilitatile
+    public function facilities()
+    {
+        return $this->belongsToMany(Facility::class,'facility_room','room_id','facility_id');
+    }
 }

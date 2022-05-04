@@ -46,7 +46,7 @@
                     </tr>
                 </tbody>
             </table>
-            <a href="#" class="primary-btn">More Details</a>
+            <a href="#" class="primary-btn">Rezerva Camera</a>
         </div>
     </div>
 </div>

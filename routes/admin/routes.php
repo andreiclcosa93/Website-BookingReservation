@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\FacilitiesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PanelController;
 use App\Http\Controllers\Admin\PhotosController;
+use App\Http\Controllers\Admin\RoomFacilitiesController;
 use App\Http\Controllers\Admin\RoomsController;
 
 Route::middleware('supervisor')->prefix('administration')->name('admin.')->group(function(){
@@ -45,17 +46,28 @@ Route::middleware('supervisor')->prefix('administration')->name('admin.')->group
     Route::delete('room/photo/delete/{id}',[PhotosController::class,'deletePhotos'])->name('rooms.photos.delete');
 
 
-    //=============================================================
+ //=============================================================
     //=== RUTELE PENTRU ADMINISTRAREA Facilitatilor unei camere
-//=============================================================
-//listarea setului de facilitati pentru camere
-Route::get('facilities',[FacilitiesController::class,'listFacilities'])->name('facilities.list');
+    //=============================================================
+    //listarea setului de facilitati pentru camere
+    Route::get('facilities', [FacilitiesController::class, 'listFacilities'])->name('facilities.list');
 
-//adaugarea unei facilitati
-Route::post('/facilitiess/add',[FacilitiesController::class,'createFacility'])->name('facilities.create');
-Route::put('/facilitiess/update/{id}',[FacilitiesController::class,'updateFacility'])->name('facilities.update');
+    //adaugarea unei facilitati
+    Route::post('/facilitiess/add', [FacilitiesController::class, 'createFacility'])->name('facilities.create');
+    Route::put('/facilitiess/update/{id}', [FacilitiesController::class, 'updateFacility'])->name('facilities.update');
+
+    //stergerea unei facilitati
+    Route::delete('/facilitiess/delete/{id}', [FacilitiesController::class, 'deleteFacility'])->name('facilities.delete');
 
 
+    //=============================================================
+    //=== RUTELE PENTRU ATASAREA DE FACILITATI UNEI CAMERE
+    //=============================================================
+
+    //afisam lista de facilitati
+    Route::get('facilities/room/{id}', [RoomFacilitiesController::class,'listFacilities'])->name('room.facilities');
+    //atasam un numar de faciitati unei camere
+    Route::post('facilities/room/attach/{id}', [RoomFacilitiesController::class,'attachFacilities'])->name('room.facilities.attach');
 
 });
 

@@ -125,7 +125,8 @@ class PhotosController extends Controller
         }
 
         $photo->save();
-        return redirect()->route('admin.rooms.photos.edit',$photo->room->id)->with('success', 'Imaginea a fost updatata in galeria foto');
+        // return redirect()->route('admin.rooms.photos.edit',$photo->room->id)->with('success', 'Imaginea a fost updatata in galeria foto');
+        return redirect()->back();
 
 
 
@@ -133,8 +134,13 @@ class PhotosController extends Controller
 
     public function deletePhotos($id)
     {
-        $photo=Photo::findOrFail($id)->delete();
-        return redirect()->route('admin.rooms.photos.edit')->with('success','Imaginea a fost stearsa din baza date');
+        $photo = Photo::findOrFail($id);
+        if (File::exists($photo->photoPath())) {
+
+            File::delete($photo->photoPath());
+        }
+        $photo->delete();
+        return redirect()->back()->with('success', 'Imaginea a fost stearsa din baza date');
     }
 
 

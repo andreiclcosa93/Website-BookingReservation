@@ -12,7 +12,7 @@ class Photo extends Model
     //relatia inversa one-to-many Room -- apartine unei camere
     public function room()
     {
-        return $this->belongsTo(Photo::class,'room_id','id');
+        return $this->belongsTo(Room::class,'room_id','id');
     }
 
     public function photoUrl()

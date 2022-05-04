@@ -3,6 +3,14 @@
 @section('content')
 <h2 class="my-4">Editarea camerei {{ $room->name }} ({{ $room->id }})</h2>
 
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="{{ route('admin.panel') }}">Control Panel</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('admin.rooms.list') }}">Camere</a></li>
+    <li class="breadcrumb-item active">Editare {{ $room->name }}</li>
+    <li class="breadcrumb-item"><a href="{{ route('admin.rooms.photos.edit',$room->id) }}">Photo Galery</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('admin.room.facilities',$room->id) }}">Facilitati</a></li>
+</ol>
+
 
 <div class="card p-2">
     <form action="{{ route('admin.rooms.update', $room->id) }}" method="POST" enctype="multipart/form-data">
