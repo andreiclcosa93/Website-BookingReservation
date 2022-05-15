@@ -46,7 +46,15 @@
                 <tr>
                         <td>{{ $users->currentPage() > 1 ? $loop->iteration + $users->perPage() * ($users->currentPage() - 1) : $loop->iteration }}
                         </td>
-                        <td>{{ $user->name }} <span class="text-info">({{ $user->id }})</span></td>
+                        <td>
+                        @if($user->reservations()->count() >0)
+                        {{  $user->name }} <span class="text-info"><a href="{{ route('admin.reservations.list',['user_id'=> $user->id]) }}">{{ $user->reservations()->count() }} rezervari</a></span><br>
+
+                        @else
+                        {{  $user->name }} <span class="text-info">( nici o rezervare)</span>
+
+                        @endif
+                           </td>
                         <td>{{ $user->email }} </td>
                         <td>{{ $user->phone }} </td>
                         <td>
@@ -63,6 +71,7 @@
             </tbody>
     </div>
     <div class="cad-footer">
+        {{-- paginatia pentru lista de utilizatori --}}
         {{ $users->links() }}
     </div>
 

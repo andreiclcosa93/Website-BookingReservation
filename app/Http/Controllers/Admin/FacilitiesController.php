@@ -85,7 +85,10 @@ class FacilitiesController extends Controller
 
     public function deleteFacility($id)
     {
-        $facility = Facility::findOrfail($id)->delete();
+
+        $facility = Facility::findOrfail($id);
+        $facility->rooms()->detach();
+        $facility->delete();
         return redirect()->back()->with('success', 'Facilitatea a fost stearsa');
     }
 }

@@ -7,3 +7,6 @@ Route::get('/',[PagesController::class,'homePage'])->name('home');
 
 //ruta care afiseaza pagina cu toate camerele
 Route::get('rooms' ,[PagesController::class,'roomsPage'])->name('rooms');
+
+//ruta care afiseaza o camera
+Route::get('/room/{id}', [PagesController::class,'roomDetail'])->name('rooms.detail');

@@ -8,7 +8,12 @@
 <div class="col-md-4">
     <div class="card border m-2 p-2">
         <div class="card-header">
-            <h2>{{ $room->name }}</h2>
+            <h2>{{ $room->name }} </h2>
+            @if($room->reservations->count()>0)
+            <a href="{{ route('admin.reservations.list',['room_id'=>$room->id]) }}" >{{ $room->reservations->count() }} rezervari</a>
+            @else
+            - nu exista rezervari
+            @endif
         </div>
         <div class="card-body">
 

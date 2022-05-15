@@ -13,7 +13,10 @@ class RoomsController extends Controller
     //
     public function showRooms()
     {
+        $room= Room::where('id',4)->first();
+        // dd($room->reservations->count());
         $rooms= Room::all()->sortBy('position');
+
         return view('admin.rooms.list')
         ->with('rooms', $rooms);
     }
@@ -123,7 +126,9 @@ class RoomsController extends Controller
 
     public function deleteRooms($id)
     {
-        $room=Room::findOrfail($id)->delete();
+        $room=Room::findOrfail($id);
+        $room->facilities()->detach();
+        $room->delete();
         return redirect(route('admin.rooms.list'))->with('success', 'Camera a fost stearsa definitiv din baza de date');
 
     }

@@ -17,6 +17,11 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-users"></i> </div>
                     Facilitati
                 </a>
+                <a class="nav-link {{ request()->routeIs('admin.reservations.*') ? 'active' :'' }}"
+                    href="{{ route('admin.reservations.list') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i> </div>
+                    Rezervari
+                </a>
 
                 {{-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

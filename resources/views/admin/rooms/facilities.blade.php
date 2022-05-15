@@ -4,7 +4,7 @@
 <h1>
     Selectarea facilitatilor pentru <span class="text-info">{{ $room->name }}</span>
 </h1>
-<ol class="breadcrumb mb-4">
+<ol class="breadcrumb mb-4" style="font-size: 20px; text-decoration: none;">
     <li class="breadcrumb-item"><a href="{{ route('admin.panel') }}">Control Panel</a></li>
     <li class="breadcrumb-item"><a href="{{ route('admin.rooms.list') }}">Camere</a></li>
     <li class="breadcrumb-item active">Facilitati {{ $room->name }}</li>

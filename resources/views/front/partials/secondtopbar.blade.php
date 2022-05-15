@@ -41,7 +41,9 @@
                                         <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"
                                         href="#">Delogare</a>
                                         @if(Auth::user()->role=='admin')
-                                        <li><a href="{{ route('admin.panel') }}">Contul meu</a></li>
+                                        <li><a href="{{ route('admin.panel') }}">Control Panel</a></li>
+                                        @else
+                                        <li><a href="{{ route('reservations.account') }}">Contul meu</a></li>
                                         @endif
                                     </li>
                                     @endauth
@@ -77,7 +79,7 @@
                         <nav class="mainmenu">
                             <ul>
                                 <li class="{{ request()->routeIs('home') ? 'active' :'' }}"><a href="{{ route('home') }}">Acasa</a></li>
-                                <li class="{{ request()->routeIs('rooms') ? 'active' :'' }}"><a href="{{ route('rooms') }}">Camere</a></li>
+                                <li class="{{ request()->routeIs('rooms*') ? 'active' :'' }}"><a href="{{ route('rooms') }}">Camere</a></li>
                                 <li><a href="./about-us.html">Despre Noi</a></li>
                                 <li><a href="./pages.html">Pages</a>
                                     <ul class="dropdown">

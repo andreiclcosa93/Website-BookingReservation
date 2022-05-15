@@ -46,7 +46,7 @@
                     </tr>
                 </tbody>
             </table>
-            <a href="#" class="primary-btn">Rezerva Camera</a>
+            <a href="{{ route('rooms.detail', $room->id) }}" class="primary-btn" >Rezerva Camera</a>
         </div>
     </div>
 </div>

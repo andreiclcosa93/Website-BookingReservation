@@ -26,7 +26,7 @@ class RoomAddRequest extends FormRequest
         return [
             'name'=>['required','max:100'],
             'number'=>['required','integer'],
-            'description'=>['max:1000'],
+            // 'description'=>['max:3000'],
             'position'=>'required|integer',
             'photo'=>'nullable|image|max:1024'
         ];
@@ -36,7 +36,7 @@ class RoomAddRequest extends FormRequest
     {
         return [
             'name.max'=>'Numarul de caractere permis este de maxim 100 caractere',
-            'description.max'=>'Numarul de caractere permis este de maxim 1000 caractere',
+            'description.max'=>'Numarul de caractere permis este de maxim 3000 caractere',
             'photo.max'=>'Imaginea camerei nu poate avea mai mult de 1 MB'
         ];
     }

@@ -36,6 +36,13 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    //relatia one-to-many user-reservations
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class,'user_id')
+                ->orderByDesc('checkin_at')->get();
+    }
+
     /**
      * The attributes that should be cast.
      *
