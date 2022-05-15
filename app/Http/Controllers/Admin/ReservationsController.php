@@ -42,6 +42,15 @@ class ReservationsController extends Controller
             ->with('user',$user);
     }
 
+    //stergerea unei rezervari de catre utilizator
+    public function deleteReservation($id)
+    {
+        $reservation=Reservation::findOrFail($id);
+        $reservation->delete();
+
+        return back()->with('success','Rezervarea a fost anulata');
+    }
+
 
     //=============================
     // ADMINISTRAREA REZERVARILOR

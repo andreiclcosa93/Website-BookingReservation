@@ -25,7 +25,7 @@
     <!-- About Us Section End -->
 
     <!-- Services Section End -->
-    {{-- @include('front.partials.services') --}}
+    @include('front.partials.services')
     <!-- Services Section End -->
 
     <!-- Home Room Section Begin -->

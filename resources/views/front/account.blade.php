@@ -42,6 +42,7 @@
                           <th scope="col">Zile</th>
                           <th scope="col">Pret</th>
                           <th scope="col">Total</th>
+                          <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -54,6 +55,15 @@
                             <td>{{ $reservation->checkout_at->diffInDays($reservation->checkin_at) }}</td>
                             <td>{{ $reservation->room->price }}</td>
                             <td>{{ $reservation->checkout_at->diffInDays($reservation->checkin_at) *  $reservation->room->price  }}</td>
+                            <td>
+                                @if(!$reservation->confirmed_at)
+                                    <form action="{{ route('reservations.delete',$reservation->id) }}" class="d-none" id="delete-{{ $reservation->id }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                    </form>
+                                    <button  onclick="event.preventDefault();cancel('delete-{{ $reservation->id }}')" class="btn btn-danger">Anuleaza</button>
+                                @endif
+                            </td>
                           </tr>
                         @empty
                             <div class="alert alert-info">
@@ -71,3 +81,24 @@
 </section>
 
 @endsection
+
+@push('customJs')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+
+        window.cancel = function(formId) {
+            Swal.fire({
+                icon: 'question',
+                text: 'Rezervarea va fi anulata ?',
+                showCancelButton: true,
+                confirmButtonText: 'Anuleaza',
+                confirmButtonColor: '#e3342f',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(formId).submit();
+                }
+            });
+        }
+    </script>
+@endpush

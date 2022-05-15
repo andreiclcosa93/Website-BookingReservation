@@ -11,6 +11,9 @@ Route::middleware('auth')->prefix('user')->name('reservations.')->group(function
     //isi vede rezervarile in cont
     Route::get('account',[ReservationsController::class, 'viewAccount'])->name('account');
 
+    //utilizatorul isi sterge rezervarea
+    Route::delete('reservation/delete/{id}', [ReservationsController::class, 'deleteReservation'])->name('delete');
+
 });
 
 //grupul de rute pentru administrarea rezervarilor
