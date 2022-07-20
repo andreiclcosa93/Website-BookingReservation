@@ -8,4 +8,9 @@
     <script src="{{ asset('front/js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('front/js/main.js') }}"></script>
+
+    {{-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> --}}
+
+    <script src="aos-master/dist/aos.js"></script>
     @stack('customJs')
+

@@ -47,7 +47,7 @@ class FacilitiesController extends Controller
 
         $facility->save();
 
-        return redirect()->back()->with('success', 'Facilitatea hotelului a fost adaugata');
+        return redirect()->back()->with('success', 'Facilitatea Complexului au fost adaugata');
     }
 
     //updatam o facilitate
@@ -80,7 +80,7 @@ class FacilitiesController extends Controller
         }
 
         $facility->save();
-        return redirect()->back()->with('success', 'Facilitatea hotelului a fost updatata');
+        return redirect()->back()->with('success', 'Facilitatea Complexului a fost updatata');
     }
 
     public function deleteFacility($id)

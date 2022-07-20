@@ -1,6 +1,7 @@
 @include('admin.partials.head')
 
-<body class="bg-secondary">
+{{-- <body class="bg-secondary"> --}}
+    <body style="background-color:#F2EEED;">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -8,7 +9,11 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-7">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                <div class="card-header" style="color:#ffffff; background-color:#E9AF64;"><h3 class="text-center font-weight-light my-4">Creare Cont</h3></div>
+
+                                <div class="card-header" style="color:#ffffff; background-color:#E9AF64;">
+
+                                    <h3 class="text-center font-weight-light my-4">Creare Cont</h3>
+                                </div>
                                 <div class="card-body">
                                     <form action="{{ route('register') }}" method="POST">
                                         @csrf
@@ -86,7 +91,9 @@
                                     <div class="small">
                                         <button style=" background-color:#E9AF64; border-style: none; border-radius: 8px;">
                                             <a style="text-decoration: none; color: #ffffff; " class="small btn-lg" href="{{ route('login') }}">Ai deja Cont? Logheaza-te</a>
-                                        </button>
+
+                                        </button><br><br>
+                                        <button style=" background-color:#E9AF64; border-style: none; border-radius: 8px;"><a style="text-decoration: none; color:#ffffff;" class="small btn-lg"  href="{{ route('home') }}"><i class="fa fa-home" aria-hidden="true"></i></a></button>
                                     </div>
                                 </div>
                             </div>
@@ -100,11 +107,6 @@
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-center">
                         <div class="text-muted">Copyright &copy; | Ajmal-JaiDam 2022</div>
-                        {{-- <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div> --}}
                     </div>
                 </div>
             </footer>

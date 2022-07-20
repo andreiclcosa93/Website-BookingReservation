@@ -12,14 +12,12 @@
                     <h2>Camera {{ $room->name }}</h2>
                     <div class="bt-option">
                         <a href="{{ route('home') }}">Acasa</a>
-                        <a href="{{ route('rooms') }}">Camere</a>
+                        <a href="{{ route('rooms') }}">Camerele Noastre</a>
                         <span>{{ $room->name }}</span>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
 
@@ -30,8 +28,20 @@
                 <div class="room-details-item">
                     <img class="d-block mx-auto" src="{{ $room->photoUrl() }}" alt="">
                     <div class="rd-text">
-                    <h2>{{ $room->price }} /noapte</h2>
+                        <div class="rd-title">
+                        <div class="rdt-right">
+                            <div class="rating">
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star-half_alt"></i>
+                            </div>
+                        </div>
+                        <h2>{{ $room->price }} Ron<span>/Noapte</span></h2>
+                        </div>
                     </div>
+
                     <table class="table">
                         <tbody>
                             @forelse($room->publicFacilities() as $facility)
@@ -43,8 +53,6 @@
                             @empty
 
                             @endforelse
-
-
                         </tbody>
                     </table>
                 </div>
@@ -103,7 +111,6 @@
                         title="{{ $photo->name }}" style="max-height: 300px;">
                 </a>
 
-
               <div class="">
                   {{ $photo->info }}
               </div>
@@ -150,6 +157,7 @@
     </script>
 @endpush
 @push('customCss')
+
     <!-- Magnific Popup core CSS file -->
     <link href="/images/magnific/magnific.css" media="all" rel="stylesheet" type="text/css" />
 @endpush

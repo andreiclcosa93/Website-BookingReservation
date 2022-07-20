@@ -17,10 +17,8 @@
                             <a href="#"><i class="fa fa-youtube"></i></a>
 
                         </div>
-                        {{-- <a href="" class="bk-btn">Rezerva Acum</a> --}}
-                        <div class="language-option">
-                            {{-- <img src="/front/img/flag.jpg" alt=""> --}}
 
+                        <div class="language-option">
 
                             <i class="fa fa-user fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
                             <span>
@@ -28,6 +26,7 @@
                                 {{ Auth::user()->name }}
                                  @endauth
                                 @guest Guest @endguest
+
 
                                 <i class="fa fa-angle-down"></i></span>
                             <div class="flag-dropdown">
@@ -38,16 +37,16 @@
                                         <form method="POST" action="{{ route('logout') }}" id="logout-form" class="d-none">
                                             @csrf
                                         </form>
-                                        <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"
-                                        href="#">Delogare</a>
-                                        @if(Auth::user()->role=='admin')
+                                        <a onclick="event.preventDefault();document.getElementById('logout-form').submit();" href="#">Delogare</a>
+                                            @if(Auth::user()->role=='admin')
                                         <li><a href="{{ route('admin.panel') }}">Control Panel</a></li>
-                                        @else
+                                            @else
                                         <li><a href="{{ route('reservations.account') }}">Contul meu</a></li>
-                                        @endif
+                                            @endif
                                     </li>
-                                    @endauth
-                                    @guest
+
+                                        @endauth
+                                        @guest
 
                                     <li><a href="{{ route('login') }}">Logare</a></li>
                                     <li><a href="{{ route('register') }}">Inregistrare </a></li>
@@ -69,7 +68,7 @@
                     <div class="logo">
                         <a href="/">
                             <img src="" alt="">
-                            {{-- de facut logo --}}
+
                             <p style="color:#E9AF64; font-family: 'Water Brush', cursive; font-size: 35px;">Ajmal-JaiDam</p>
                         </a>
                     </div>
@@ -78,19 +77,13 @@
                     <div class="nav-menu">
                         <nav class="mainmenu">
                             <ul>
-                                <li class="{{ request()->routeIs('home') ? 'active' :'' }}"><a href="{{ route('home') }}">Acasa</a></li>
-                                <li class="{{ request()->routeIs('rooms*') ? 'active' :'' }}"><a href="{{ route('rooms') }}">Camere</a></li>
-                                <li><a href="./about-us.html">Despre Noi</a></li>
-                                <li><a href="./pages.html">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="./room-details.html">Room Details</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                        <li><a href="#">Family Room</a></li>
-                                        <li><a href="#">Premium Room</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="./blog.html">Blogul Nostru</a></li>
-                                <li><a href="./contact.html">Contact</a></li>
+                                <li class="{{ request()->routeIs('home') ? 'active' :'' }}"><a href="{{ route('home') }}">ACASA</a></li>
+                                <li class="{{ request()->routeIs('about') ? 'active' :'' }}"><a  href="{{ route('about') }}">DESPRE NOI</a></li>
+                                <li class="{{ request()->routeIs('rooms*') ? 'active' :'' }}"><a href="{{ route('rooms') }}">CAMERELE NOASTRE</a></li>
+
+                                {{-- <li><a href="#">Servicii</a></li> --}}
+                                <li class="{{ request()->routeIs('blog') ? 'active' :'' }}"><a href="{{ route('blog') }}">BLOG</a></li>
+                                <li class="{{ request()->routeIs('contact') ? 'active' :'' }}"><a href="{{ route('contact') }}">CONTACT</a></li>
                             </ul>
                         </nav>
                         <div class="nav-right search-switch">
@@ -103,11 +96,9 @@
     </div>
 
 
-    {{-- @push('customCss')
+    @push('customCss')
     <style>
-    p.logo{
-        color:red;
-        }
+
 
     </style>
-    @endpush --}}
+    @endpush

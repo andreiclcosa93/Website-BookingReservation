@@ -9,28 +9,23 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                    <h2>Rezervari cont {{ Auth::user()->name }}</h2>
-                    <h3>email: {{ Auth::user()->email }}; telefon::{{ Auth::user()->phone }}</h3>
-                    <div class="bt-option">
+                    <h2>Rezervari cont: <span style="color: #E9AF64;"> {{ Auth::user()->name }}</span></h2>
+                    <h3> <i class="fa fa-envelope" aria-hidden="true" style="color: #E9AF64;"></i> email: <span style="color: #E9AF64;"> {{ Auth::user()->email }} </span> | &nbsp;<i class="fa fa-phone" aria-hidden="true" style="color: #E9AF64;"></i> telefon: <span style="color: #E9AF64;">{{ Auth::user()->phone }} </span></h3>
+                    <div class="bt-option"><br>
                         <a href="{{ route('home') }}">Acasa</a>
                        <span>Rezervari cont</span>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
 
 <section class="room-details-section spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
-            </div>
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                 <h2>Rezervarile mele - {{ $user->reservations()->count() }}</h2>
-
                 <hr>
                 <table class="table">
                     <thead>
@@ -71,14 +66,11 @@
                             </div>
                         @endforelse
                       </tbody>
-
                 </table>
-
-
             </div>
         </div>
     </div>
-</section>
+</section><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 @endsection
 
@@ -100,5 +92,6 @@
                 }
             });
         }
+
     </script>
 @endpush

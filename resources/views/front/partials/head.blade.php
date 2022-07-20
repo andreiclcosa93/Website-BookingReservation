@@ -25,8 +25,13 @@
     <link rel="stylesheet" href="{{ asset('front/css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('front/css/style.css') }}" type="text/css">
 
+    {{-- google font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Water+Brush&display=swap" rel="stylesheet">
+
+    {{-- creare efect website --}}
+
+    <link href="aos-master/dist/aos.css" rel="stylesheet">
     @stack('customCss')
 </head>

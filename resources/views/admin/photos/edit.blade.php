@@ -1,19 +1,20 @@
 @extends('admin.template')
 
 @section('content')
-    <h2 class="my-4">Editarea galeriei foto pentru <span class="text-info">{{ $room->name }}</span>
+
+    <h2 class="my-4 text-center">Editarea galeriei foto pentru <span class="text-info">{{ $room->name }}</span>
         - <span class="text-danger">{{ $room->photos->count() }}</span>
     </h2>
-    <ol class="breadcrumb mb-4">
+    <ol class="breadcrumb mb-4 d-flex justify-content-center">
         <li class="breadcrumb-item"><a href="{{ route('admin.panel') }}">Control Panel</a></li>
         <li class="breadcrumb-item"><a href="{{ route('admin.rooms.list') }}">Camere</a></li>
         <li class="breadcrumb-item active">Galerie foto {{ $room->name }}</li>
         <li class="breadcrumb-item"><a href="{{ route('admin.rooms.edit',$room->id) }}">Edit Room </a></li>
-    </ol>
+    </ol><br>
 
     {{-- formularul pentru adaugarea unei imagini --}}
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6 ">
             <div class="card">
                 <form action="{{ route('admin.rooms.photos.upload', $room->id) }}" method="POST"
                     enctype="multipart/form-data">
@@ -22,8 +23,6 @@
                         <h4> Adaugarea unei imagini in galeria foto</h4>
                     </div>
                     <div class="card-body">
-
-
 
                         <div class="row">
                             <div class=" col-md-12">
@@ -47,14 +46,13 @@
                             <div class=" col-md-12">
                                 <label for="info" class="form-label">Info imagine</label>
                                 <input name="info" type="text" class="form-control @error('info') is-invalid @enderror"
-                                    id="info" placeholder="tipul camerei">
+                                    id="info" placeholder="titlul imaginei">
                                 @error('info')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-
 
                             <div class="col-md-6">
 
@@ -65,12 +63,7 @@
                                     </label>
                                 </div>
                             </div>
-
                         </div>
-
-
-
-
                     </div>
                     <div class="card-footer">
                         <button class="btn-primary btn" type="submit">Upload Image</button>
@@ -136,10 +129,7 @@
                                         Imagine publica
                                     </label>
                                 </div>
-
                             </div>
-
-
                         </div>
 
                         <div class="card-footer bg-dark py-2">
@@ -149,7 +139,6 @@
                             <button onclick="event.preventDefault();deleteConfirm('form-delete-{{ $photo->id }}')"
                                 class="btn-danger btn float-start" id="button-delete-{{ $photo->id }}">Delete</button>
                         </div>
-
                     </div>
                 </form>
                 <form class="d-none" action="{{ route('admin.rooms.photos.delete', $photo->id) }}" method="POST"
@@ -164,9 +153,6 @@
             </div>
             @endforelse
     </div>
-
-
-
 
 
 @endsection

@@ -1,7 +1,7 @@
 @extends('admin.template')
 
 @section('content')
-<h2 class="my-4">Adaugarea unei camere</h2>
+<h2 class="my-4 text-center">Adaugarea unei camere</h2>
 
 
 <div class="card p-2">
@@ -10,6 +10,7 @@
     <div class="card-header">
         <h4>Adaugarea unei camere in baza de date</h4>
     </div>
+
     <div class="card-body">
         <div class="row my-3">
             <div class="col-md-6">
@@ -21,6 +22,7 @@
                   </div>
                   @enderror
             </div>
+
             <div class="col-md-3">
                 <label for="number" class="form-label">Numar de camere</label>
                 <input name="number" type="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="numarul de camere">
@@ -30,6 +32,7 @@
                   </div>
                   @enderror
             </div>
+
             <div class="col-md-3">
                 <label for="price" class="form-label">Pretul/Noapte</label>
                 <input name="price" type="number" class="form-control @error('price') is-invalid @enderror" id="price" placeholder="Pretul/Noapte">
@@ -54,14 +57,14 @@
 
             <div class=" col-md-3">
                 <div id="img-preview">
-                   <img class="img-form" src="{{ asset('images/rooms/room.jpg') }}" style="max-height:200px;"alt="">
+                   <img class="img-form" src="{{ asset('images/rooms/room.png') }}" style="max-height:200px;"alt="">
                 </div>
-
                 <div class="custom-file">
                    <input accept="image/*" name="photo" type="file" class="form-control @error('photo') is-invalid @enderror" id="photoFile" />
                    <label class="custom-file-label" for="photoFile">  </label>
                </div>
                @error('photo')
+
                <div class="invalid-feedback">
                   {{ $message }}
                  </div>
@@ -84,14 +87,9 @@
                     </label>
                   </div>
             </div>
-
-            {{-- <div class="col-md-6">
-                <label for="formFile" class="form-label">Default file input example</label>
-  <input class="form-control" type="file" id="formFile">
-            </div> --}}
         </div>
-
     </div>
+
     <div class="card-footer">
 
             <a href="{{ route('admin.rooms.list') }}" class="btn btn-dark float-start">Return</a>

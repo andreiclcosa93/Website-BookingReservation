@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\FacilitiesController;
+use App\Http\Controllers\Admin\MessagesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PanelController;
 use App\Http\Controllers\Admin\PhotosController;
@@ -8,7 +9,7 @@ use App\Http\Controllers\Admin\RoomFacilitiesController;
 use App\Http\Controllers\Admin\RoomsController;
 
 Route::middleware('supervisor')->prefix('administration')->name('admin.')->group(function(){
-    Route::get('panel',[PanelController::class,'showPanel'])->name('panel');
+    Route::get('panel',[PanelController::class,'showUsers'])->name('panel');
 
     // ==== RUTELE PENTRU UTILIZATORI IN TABEL ===
     Route::get('users-list',[PanelController::class, 'showUsers'])->name('users.list');
@@ -68,6 +69,14 @@ Route::middleware('supervisor')->prefix('administration')->name('admin.')->group
     Route::get('facilities/room/{id}', [RoomFacilitiesController::class,'listFacilities'])->name('room.facilities');
     //atasam un numar de faciitati unei camere
     Route::post('facilities/room/attach/{id}', [RoomFacilitiesController::class,'attachFacilities'])->name('room.facilities.attach');
+
+      //=============================================================
+    //=== RUTELE PENTRU GESTIONAREA MESAJELOR
+    //=============================================================
+    //afisam lista paginata cu mesaje
+    Route::get('messages', [MessagesController::class,'listMessages'])->name('messages.list');
+    //stergerea unui mesaj
+    Route::delete('message/{id}', [MessagesController::class,'deleteMessage'])->name('messages.delete');
 
 });
 

@@ -25,7 +25,7 @@
                         <ul>
                             <li>072 9090 230</li>
                             <li>office.Ajmal@jaidam.com</li>
-                            <li>856 Cordia Extension Apt. 356, Lake, United State</li>
+                            <li>856 Zone, Thailanda Ap. 35633, ASIA</li>
                         </ul>
                     </div>
                 </div>
@@ -54,9 +54,9 @@
                     </ul>
                 </div>
                 <div class="col-lg-5">
-                    <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="fa fa-heart" aria-hidden="true"></i> <a href="/" style="color:#E9AF64" >Ajmal-JaiDam</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                    <div class="co-text"><p>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Toate drepturile rezervate | <a href="/" style="color:#E9AF64" >Ajmal-JaiDam</a>
+</p></div>
                 </div>
             </div>
         </div>

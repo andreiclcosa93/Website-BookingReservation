@@ -1,7 +1,8 @@
 @extends('admin.template')
 
 @section('content')
-<br><h1 style="text-align: center;">Camerele hotelului</h1>
+
+<br><h1 style="text-align: center;">Camerele Complexului <span style="color: #E9AF64;">Ajmal-JaiDam</span></h1>
 <a href="{{ route('admin.rooms.add') }}" class="btn btn-dark btn-lg">Adauga camera</a><br><br><br>
 <div class="row">
     @forelse ($rooms as $room)
@@ -16,40 +17,31 @@
             @endif
         </div>
         <div class="card-body">
-
     <img src="{{ $room->photoUrl() }}" class="d-block mx-auto" alt="" style="max-height:300px; max-width:300px;">
-
     <p>
     <b>Nr camere:</b>{{ $room->number }}<br>
-
     <b>Pozitie pagina:</b>{{ $room->position }}<br>
     </p>
         </div>
         <div class="card-footer d-flex justify-content-between">
-            <a href="{{ route('admin.rooms.edit',['id'=>$room->id]) }}" class="btn btn-warning float-end">Edit</a>
+            <a href="{{ route('admin.rooms.edit',['id'=>$room->id]) }}" class="btn btn-warning float-end"><i class="fa fa-pencil-square" aria-hidden="true"></i>&nbsp;Editeaza</a>
             <div>
-            <a href="{{ route('admin.rooms.photos.edit',['id'=>$room->id]) }}" class="btn btn-success"><i class="fas fa-images"></i>Photos</a>
-            <a href="{{ route('admin.room.facilities',['id'=>$room->id]) }}" class="btn btn-success"><i class="fas fa-images"></i>Facilities</a>
+            <a href="{{ route('admin.rooms.photos.edit',['id'=>$room->id]) }}" class="btn btn-success"><i class="fas fa-images"></i>&nbsp;Galerie Foto</a>
+            <a href="{{ route('admin.room.facilities',['id'=>$room->id]) }}" class="btn btn-success"><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Facilitati</a>
             </div>
             <form action="{{ route('admin.rooms.delete',$room->id) }}" class="d-none" id="form-delete-{{ $room->id }}" method="POST">
                 @csrf
                 @method('delete')
 
             </form>
-            <button onclick="deleteConfirm('form-delete-{{ $room->id }}','{{ $room->name }}')" class="btn btn-danger float-start">Delete</button>
+            <button onclick="deleteConfirm('form-delete-{{ $room->id }}','{{ $room->name }}')" class="btn btn-danger float-start"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Sterge Camera</button>
         </div>
     </div>
-
-
-
-
-
 </div>
 
     @empty
         <div class="alert alert-info">Nu exista nici o camera inregistrata</div>
     @endforelse($rooms as $rooms)
-
 
 </div>
 

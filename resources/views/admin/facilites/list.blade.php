@@ -1,11 +1,11 @@
 @extends('admin.template')
 
 @section('content')
-    <h1>Facilitati pentru camerele hotelului</h1>
+    <br><h1 class="text-center">Facilitati pentru camerele Complexului <span style="color: #E9AF64;">Ajmal-JaiDam</span></h1><br>
 
     <div class="row ">
         <div class="col-md-6 mx-auto my-4 bg-light p-2 border">
-            <h3 class="text-center">Adaugarea unei facilitati pentru hotel</h3>
+            <h3 class="text-center">Adaugarea unei facilitati pentru Complex</h3>
             <form action="{{ route('admin.facilities.create') }}" method="POST">
                 @csrf
                 <div class="row my-3">
@@ -49,14 +49,14 @@
                         @enderror
                     </div>
                     <div class="col-md-3">
-                        <button type="submit" class="btn btn-primary float-end">Add Facility</button>
+                        <button type="submit" class="btn btn-primary float-end">Adauga Facilitate</button>
                     </div>
                 </div>
             </form>
 
 
         </div>
-    </div>
+    </div><br>
 
     <div class="row">
         @forelse($facilities as $facility)
@@ -85,7 +85,7 @@
                                     value="{{ old('description', $facility->description) }}">
                             </li>
                             <li class="list-group-item">
-                                <button type="submit" class="button btn btn-primary float-end">Update</button>
+                                <button type="submit" class="button btn btn-primary float-end">Actualizeaza</button>
                                 <div class="form-check mt-3">
                                     <input name="visible" class="form-check-input" type="checkbox" value="1"
                                         {{ $facility->visible ? 'checked' : '' }}>
@@ -105,15 +105,15 @@
                             @method('delete')
                         </form>
                         <button onclick="event.preventDefault();deleteConfirm('form-delete-{{ $facility->id }}')"
-                            class="btn btn-danger">Delete</button>
+                            class="btn btn-danger">Sterge</button>
                     </div>
-                </div>
+                </div><br><br><br><br>
             </div>
 
 
 @empty
     <div class="alert alert-info">
-        Nu exista facilitati pentru camerele hotelului!
+        Nu exista facilitati pentru camerele Complexului!
     </div>
     @endforelse
 

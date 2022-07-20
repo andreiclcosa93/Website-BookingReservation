@@ -11,7 +11,9 @@
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+
                     @include('admin.partials.sidenav')
+
                 </nav>
             </div>
 
@@ -19,7 +21,11 @@
             <main>
                 <div class="container-fluid px-4">
                     @include('admin.partials.messages')
+
+                    {{-- extinderea structurii dinamice --}}
                     @yield('content')
+
+
                 </div>
             </main>
            </div>

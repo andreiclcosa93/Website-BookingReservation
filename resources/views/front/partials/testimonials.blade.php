@@ -12,11 +12,7 @@
             <div class="col-lg-8 offset-lg-2">
                 <div class="testimonial-slider owl-carousel">
                     <div class="ts-item">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type
-                             specimen book. It has survived not only five centuries, but also the leap into
-                             electronic typesetting.</p>
+                        <p>Sunt foarte impresionat. Locatie ce servicii excelente, minunate. Camera era curata, confortabila si linistita. Pretul este foarte ieftin referitor la serviciile oferite, plus micul dejun este oferit. Daca va aflati prin zona, trebuie sa rămâneti aici.</p>
                         <div class="ti-author">
                             <div class="rating">
                                 <i class="icon_star"></i>
@@ -27,25 +23,37 @@
                             </div>
                             <h5> - Cosa Andrei</h5>
                         </div>
-                        {{-- <img src="img/testimonial-logo.png" alt=""> --}}
+
                         <i class="fa fa-quote-left fa-2x" aria-hidden="true"></i>
                     </div>
                     <div class="ts-item">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type
-                             specimen book. </p>
+                        <p>Cea mai frumoasa gazda pe care am avut-o. Ne-a îngreunat plecarea, întrucat voiam sa ramanem. Ne-au facut o cină si un mic dejun minunat a doua zi si ne-a dus sa vizitam imprejurimile. Camerele isi valorifica banii plătiți. Cu siguranta va recomand! </p>
                         <div class="ti-author">
                             <div class="rating">
                                 <i class="icon_star"></i>
                                 <i class="icon_star"></i>
                                 <i class="icon_star"></i>
                                 <i class="icon_star"></i>
-                                <i class="icon_star-half_alt"></i>
+                                <i class="icon_star"></i>
                             </div>
                             <h5> - Andrei Claudiu</h5>
                         </div>
-                        {{-- <img src="img/testimonial-logo.png" alt=""> --}}
+
+                        <i class="fa fa-quote-left fa-2x" aria-hidden="true"></i>
+                    </div>
+                    <div class="ts-item">
+                        <p>Am fost atat de onorati să fim oaspeti pentru o noapte la aceasta frumoasa proprietate.  Situata intr-o locatie foarte linistita,  Ospitalitate fantastica, cina delicioasă thailandeza, cazare placuta, fiecare camera este o cabana independenta. Recomandam!! </p>
+                        <div class="ti-author">
+                            <div class="rating">
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                            </div>
+                            <h5> - Andrei </h5>
+                        </div>
+
                         <i class="fa fa-quote-left fa-2x" aria-hidden="true"></i>
                     </div>
                 </div>

@@ -6,8 +6,9 @@ use Illuminate\Support\Facades\Route;
 //grupul de rute pentru utilizator
 Route::middleware('auth')->prefix('user')->name('reservations.')->group(function(){
 
-    //crearea de catre utilizator a unei rezervari
+    //crearea de catre utilizator o rezervare
     Route::post('reservation/room/{id}',[ReservationsController::class, 'createReservation'])->name('create');
+
     //isi vede rezervarile in cont
     Route::get('account',[ReservationsController::class, 'viewAccount'])->name('account');
 
@@ -30,5 +31,9 @@ Route::middleware('supervisor')->prefix('administration')->name('admin.')->group
 
     //anularea unei rezervari
     Route::post('reservation/cancel/{id}', [ReservationsController::class,'cancelReservation'])->name('reservation.cancel');
+
+    //stergerea unei rezervari
+    Route::delete('reservation/delete/{id}', [ReservationsController::class,'deleteReservationAdmin'])->name('reservation.delete');
+
 
 });

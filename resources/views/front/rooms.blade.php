@@ -12,13 +12,11 @@
                     <h2>Camerele noastre</h2>
                     <div class="bt-option">
                         <a href="{{ route('home') }}">Acasa</a>
-                        <span>Camere</span>
+                        <span>Camerele Noastre</span>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
 
@@ -32,17 +30,12 @@
         <img src="{{ $room->photoUrl() }}" alt="">
         <div class="ri-text">
             <h4>{{ $room->name }}</h4>
-            <h3>{{ $room->price }}<span>/ Pernight</span></h3>
+            <h3>{{ $room->price }}$<span>/ Noapte</span></h3>
             <table>
                 <tbody>
                     <tr>
                         <td class="r-o">Nr camere:</td>
                         <td>{{ $room->number }}</td>
-                    </tr>
-
-                    <tr>
-                        <td class="r-o">Detalii:</td>
-                        <td></td>
                     </tr>
                 </tbody>
             </table>
@@ -54,12 +47,12 @@
     <div class="alert alert-info">
         Nu avem camere disponibile momentan
     </div>
+
 @endforelse
 
         </div>
     </div>
 </section>
-
 
 
 

@@ -1,6 +1,6 @@
 @include('admin.partials.head')
 
-    <body class="bg-secondary">
+    <body style="background-color:#F2EEED;">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -13,7 +13,6 @@
                                     <div class="card-body">
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
-
                                             <div class="form-floating mb-3 mt-5">
                                                 <input name="email" class="form-control @error('email') is-invalid @enderror" id="inputEmail"
                                                 type="email" placeholder="name@example.com" required />
@@ -40,15 +39,16 @@
                                             <div class="d-grid mt-4 mb-0">
                                                 <button class="btn btn-block" style="color:#ffffff; background-color:#E9AF64; border-radius: 8px;"  type="submit">Logare</button>
                                             </div>
-
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
 
                                         <div class="small">
-                                            <button style=" background-color:#E9AF64; border-style: none; border-radius: 8px;"><a style="text-decoration: none; color: #ffffff; " class="small btn-lg" href="password.html">Am uitat Parola</a></button><br><br>
-                                            <button style=" background-color:#E9AF64; border-style: none; border-radius: 8px;"><a style="text-decoration: none; color:#ffffff;" class="small btn-lg"  href="{{ route('register') }}">Nu ai Cont? Creaza-ti Cont!</a></button>
+                                            <button style=" background-color:#E9AF64; border-style: none; border-radius: 8px;"><a style="text-decoration: none; color: #ffffff; " class="small btn-lg" href="{{ route('password.request') }}">Am uitat Parola</a></button><br><br>
+                                            <button style=" background-color:#E9AF64; border-style: none; border-radius: 8px;"><a style="text-decoration: none; color:#ffffff;" class="small btn-lg"  href="{{ route('register') }}">Nu ai Cont? Creaza-ti Cont!</a></button><br><br>
+                                            <button style=" background-color:#E9AF64; border-style: none; border-radius: 8px;"><a style="text-decoration: none; color:#ffffff;" class="small btn-lg"  href="{{ route('home') }}"><i class="fa fa-home" aria-hidden="true"></i> </a></button>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -61,16 +61,13 @@
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-center ">
                             <div class="text-muted">Copyright &copy; | Ajmal-JaiDam 2022</div>
-                            {{-- <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div> --}}
                         </div>
                     </div>
                 </footer>
             </div>
         </div>
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
     </body>

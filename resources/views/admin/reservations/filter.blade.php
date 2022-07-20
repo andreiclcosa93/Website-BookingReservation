@@ -2,17 +2,15 @@
 
 @section('content')
 <div class="m-3">
-<h1 class="my-3">Rezervarile hotelului - {{ $reservations->total() }}</h1>
+<h1 class="my-3 text-center">Rezervarile Complexului - {{ $reservations->total() }}</h1>
 
 <div class="card my-4 p-3">
     <div class="card-header">
         <div class="row">
             <div class="col-md-4">
                 <h4>Rezervari pentru luna <span class="text-info"> {{ $date_filtered->format("M - Y") }}</span></h4>
-
             </div>
             <div class="col-md-4">
-
 
                 <form action="{{ route('admin.reservations.filterMonth') }}" method="GET">
                     @csrf
@@ -28,10 +26,22 @@
                 </form>
             </div>
         </div>
-
     </div>
 
     <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert-alert-info">
+                    @forelse($rezs as $rez)
+                    <p>
+                    {{ $rez->room->name}} - <span class="text-info"><b>{{ $rez->total }}</b></span> rezervari
+                    </p>
+                    @empty
+
+                    @endforelse
+                </div>
+            </div>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -43,6 +53,7 @@
                   <th scope="col">Pret / zile </th>
                   <th scope="col">Total </th>
                   <th scope="col">Conf. </th>
+                  <th scope="col">Rol </th>
                 </tr>
               </thead>
               <tbody>
@@ -65,11 +76,24 @@
                 <td class="{{ $reservation->confirmed_at ? 'bg-success' : 'bg-danger' }} text-light"
                 >{!! $reservation->confirmed_at ? '<i class="fa fa-check" aria-hidden="true"></i> ' . $reservation->confirmed_at->format('M d Y') :'<i class="fa fa-ban" aria-hidden="true"></i>'!!}</td>
 
+                <td>
+                    @if(!$reservation->confirmed_at)
+                    <form action="{{ route('admin.reservation.confirm',$reservation->id) }}" class="d-none" id="confirmed-{{ $reservation->id }}" method="POST">
+                    @csrf
+                    </form>
+                    <button onclick="event.preventDefault();confirm('confirmed-{{ $reservation->id }}')" class="btn btn-success">Confirm</button>
+                    @else
+                    <form action="{{ route('admin.reservation.cancel',$reservation->id) }}" class="d-none" id="cancel-{{ $reservation->id }}" method="POST">
+                    @csrf
+                    </form>
+                    <button onclick="event.preventDefault();cancel('cancel-{{ $reservation->id }}')" class="btn btn-danger">Cancel</button>
+                    @endif
+                </td>
               </tr>
 
               @empty
             <div class="alert alert-info">
-                <h3>Nu exista rezervari pentru hotel</h3>
+                <h3>Nu exista rezervari pentru Complex</h3>
             </div>
                 @endforelse
               </tbody>
@@ -83,7 +107,38 @@
 </div>
 
 
-
-
-
 @endsection
+
+@push('customJs')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.confirm = function(formId) {
+            Swal.fire({
+                icon: 'question',
+                text: 'Rezervarea va fi confirmata ?',
+                showCancelButton: true,
+                confirmButtonText: 'Confirm',
+                confirmButtonColor: '#3256a8',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(formId).submit();
+                }
+            });
+        }
+
+        window.cancel = function(formId) {
+            Swal.fire({
+                icon: 'question',
+                text: 'Rezervarea va fi anulata ?',
+                showCancelButton: true,
+                confirmButtonText: 'Anuleaza',
+                confirmButtonColor: '#e3342f',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(formId).submit();
+                }
+            });
+        }
+    </script>
+@endpush
+

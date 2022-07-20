@@ -1,9 +1,9 @@
 @extends('admin.template')
 
 @section('content')
-<h2 class="my-4">Editarea camerei {{ $room->name }} ({{ $room->id }})</h2>
+<h2 class="my-4 text-center">Editarea camerei {{ $room->name }} ({{ $room->id }})</h2>
 
-<ol class="breadcrumb mb-4">
+<ol class="breadcrumb mb-4 d-flex justify-content-center" style="font-size: 20px; text-decoration: none;">
     <li class="breadcrumb-item"><a href="{{ route('admin.panel') }}">Control Panel</a></li>
     <li class="breadcrumb-item"><a href="{{ route('admin.rooms.list') }}">Camere</a></li>
     <li class="breadcrumb-item active">Editare {{ $room->name }}</li>
@@ -52,19 +52,19 @@
 
         <div class="row my-3">
             <div class="col-md-6">
-                <label for="description" class="form-label">Descrierea Camerei</label>
+                <label for="description" class="form-label"></label>
                 <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" rows="6">{!! old('description',$room->description) !!}</textarea>
                 @error('description')
                 <div class="invalid-feedback">
                    {{ $message }}
                   </div>
                   @enderror
-            </div>
+            </div><br>
 
             <div class=" col-md-3">
                 <div id="img-preview">
                    <img class="img-form" src="{{ $room->photoUrl() }}" style="max-height:200px;"alt="">
-                </div>
+                </div><br><br>
 
                 <div class="custom-file">
                    <input accept="image/*" name="photo" type="file" class="form-control @error('photo') is-invalid @enderror" id="photoFile" />
@@ -95,13 +95,7 @@
                     </label>
                   </div>
             </div>
-
-            {{-- <div class="col-md-6">
-                <label for="formFile" class="form-label">Default file input example</label>
-  <input class="form-control" type="file" id="formFile">
-            </div> --}}
         </div>
-
     </div>
     <div class="card-footer">
 
@@ -116,12 +110,8 @@
 
 @push('customJs')
 <script src="//cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
+
 <script>
-    // ClassicEditor
-    //     .create( document.querySelector( '#description' ) )
-    //     .catch( error => {
-    //         console.error( error );
-    //     } );
 
     CKEDITOR.replace( 'description' );
 </script>

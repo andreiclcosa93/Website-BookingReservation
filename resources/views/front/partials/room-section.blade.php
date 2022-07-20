@@ -1,10 +1,13 @@
+<br><br><br><br><br><br>
 <section class="hp-room-section my-5">
     <div class="container-fluid">
         <div class="hp-room-items">
             <div class="row">
+
                 @forelse($rooms  as $room)
+
                 <div class="col-lg-3 col-md-6">
-                    <div class="hp-room-item set-bg" data-setbg="{{ asset('/front/img/room/room-b1.jpg') }}">
+                    <div class="hp-room-item set-bg" data-setbg="{{ $room->photoUrl() }}">
                         <div class="hr-text">
                             <h3>{{ $room->name }}</h3>
                             <h2>{{ $room->price }}<span>/Noapte</span></h2>
@@ -35,3 +38,4 @@
         </div>
     </div>
 </section>
+<br><br><br><br><br>

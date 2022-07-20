@@ -1,8 +1,8 @@
 @extends('admin.template')
 
 @section('content')
-<div class="m-3">
-<h1 class="my-3">Rezervarile hotelului - {{ $reservations->total() }}</h1>
+<div class="m-3"><br>
+<h1 class="my-3 text-center">Rezervarile Complexului - {{ $reservations->total() }}</h1><br>
 
 <div class="card my-4 p-3">
     <div class="card-header">
@@ -38,23 +38,21 @@
                 </form>
             </div>
         </div>
-
     </div>
 
     <div class="card-body">
         <table class="table table-striped">
             <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Nume</th>
-                  <th scope="col">Camera</th>
-                  <th scope="col">Creat</th>
-                  <th scope="col">Check in / out</th>
-                  <th scope="col">Pret / zile </th>
-                  <th scope="col">Total </th>
-                  <th scope="col">Conf. </th>
-                  <th scope="col">Action </th>
-
+                    <th scope="col">#</th>
+                    <th scope="col">Nume</th>
+                    <th scope="col">Camera</th>
+                    <th scope="col">Creat</th>
+                    <th scope="col">Check in / out</th>
+                    <th scope="col">Pret / zile </th>
+                    <th scope="col">Total </th>
+                    <th scope="col">Conf. </th>
+                    <th scope="col" >Rol </th>
                 </tr>
               </thead>
               <tbody>
@@ -68,7 +66,6 @@
                     <a href="{{ route('admin.reservations.list',['room_id'=>$reservation->room->id]) }}" title="rezervari pentru aceasta camera">
                     {{ $reservation->room->name }}
                     </a>
-
                 </td>
                 <td>{{ $reservation->created_at->format('M d Y') }}</td>
                 <td>{{ $reservation->checkin_at->format('M d Y') }} / {{ $reservation->checkout_at->format('M d Y') }}</td>
@@ -77,20 +74,24 @@
                 <td class="{{ $reservation->confirmed_at ? 'bg-success' : 'bg-danger' }} text-light"
                 >{!! $reservation->confirmed_at ? '<i class="fa fa-check" aria-hidden="true"></i> ' . $reservation->confirmed_at->format('M d Y') :'<i class="fa fa-ban" aria-hidden="true"></i>'!!}
             </td>
-            <td>
+            <td style="width:200px;">
                 @if(!$reservation->confirmed_at)
                 <form action="{{ route('admin.reservation.confirm',$reservation->id) }}" class="d-none" id="confirmed-{{ $reservation->id }}" method="POST">
                 @csrf
                 </form>
-                <button onclick="event.preventDefault();confirm('confirmed-{{ $reservation->id }}')" class="btn btn-success">Confirm</button>
+                <button onclick="event.preventDefault();confirm('confirmed-{{ $reservation->id }}')" class="btn btn-success">Confirma</button>
                 @else
                 <form action="{{ route('admin.reservation.cancel',$reservation->id) }}" class="d-none" id="cancel-{{ $reservation->id }}" method="POST">
                 @csrf
                 </form>
                 <button onclick="event.preventDefault();cancel('cancel-{{ $reservation->id }}')" class="btn btn-danger">Cancel</button>
                 @endif
+                <form action="{{ route('admin.reservation.delete',$reservation->id) }}" class="d-none" id="delete-{{ $reservation->id }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    </form>
+                <button onclick="event.preventDefault(); deleteRez('delete-{{ $reservation->id }}')" class="btn btn-danger">Sterge</button>
             </td>
-
               </tr>
 
               @empty
@@ -102,8 +103,11 @@
         </table>
     </div>
     <div class="card-footer">
+
 {{-- linkurile de paginatie --}}
+
        {{ $reservations->links()}}
+
     </div>
 </div>
 </div>
@@ -131,6 +135,20 @@
             Swal.fire({
                 icon: 'question',
                 text: 'Rezervarea va fi anulata ?',
+                showCancelButton: true,
+                confirmButtonText: 'Anuleaza',
+                confirmButtonColor: '#e3342f',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(formId).submit();
+                }
+            });
+        }
+
+        window.deleteRez = function(formId) {
+            Swal.fire({
+                icon: 'question',
+                text: 'Confirmati stergerea rezervarii ?',
                 showCancelButton: true,
                 confirmButtonText: 'Anuleaza',
                 confirmButtonColor: '#e3342f',

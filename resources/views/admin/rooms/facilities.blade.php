@@ -1,16 +1,18 @@
 @extends('admin.template')
 
 @section('content')
-<h1>
+
+<h1 class="text-center">
     Selectarea facilitatilor pentru <span class="text-info">{{ $room->name }}</span>
-</h1>
-<ol class="breadcrumb mb-4" style="font-size: 20px; text-decoration: none;">
+</h1><br>
+
+<ol class="breadcrumb mb-4 d-flex justify-content-center" style="font-size: 20px; text-decoration: none;">
     <li class="breadcrumb-item"><a href="{{ route('admin.panel') }}">Control Panel</a></li>
     <li class="breadcrumb-item"><a href="{{ route('admin.rooms.list') }}">Camere</a></li>
     <li class="breadcrumb-item active">Facilitati {{ $room->name }}</li>
     <li class="breadcrumb-item"><a href="{{ route('admin.rooms.edit',$room->id) }}">Edit Room </a></li>
     <li class="breadcrumb-item"><a href="{{ route('admin.rooms.photos.edit',$room->id) }}">FotoGalery </a></li>
-</ol>
+</ol><br>
 
 <div class="row my-4">
 
@@ -19,10 +21,8 @@
             @csrf
         <div class="card">
             <div class="card-header">Facilitati ale camerei {{ $room->name }}
-                col
             </div>
             <div class="card-body">
-
                     <div class="row">
                         @forelse($facilities as $facility)
                         <div class="col-md-6 my-4">
@@ -36,13 +36,10 @@
                         @empty
                             Nu exista facilitati ale camerei
                         @endforelse
-
-
                     </div>
-
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Set Facilities</button>
+                <button type="submit" class="btn btn-primary">Seteaza Facilitatile</button>
             </div>
         </form>
         </div>
