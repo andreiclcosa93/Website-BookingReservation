@@ -36,7 +36,7 @@
                             </tr>
                             <tr>
                                 <td class="c-o">Telefon:</td>
-                                <td>072 9090 230</td>
+                                <td>072 0000 000</td>
                             </tr>
                             <tr>
                                 <td class="c-o">Email:</td>
@@ -44,7 +44,7 @@
                             </tr>
                             <tr>
                                 <td class="c-o">Fax:</td>
-                                <td>072 9090 230</td>
+                                <td>072 0000 000</td>
                             </tr>
                         </tbody>
                     </table>

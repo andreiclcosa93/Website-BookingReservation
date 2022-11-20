@@ -74,7 +74,7 @@
             <a href="#"><i class="fa fa-youtube"></i></a>
         </div>
         <ul class="top-widget">
-            <li><i style="color:black;" class="fa fa-phone"></i> 072 9090 230</li>
+            <li><i style="color:black;" class="fa fa-phone"></i> 072 0000 000</li>
                 <li><i style="color:black;" class="fa fa-envelope"></i> office.Ajmal@jaidam.com</li>
         </ul>
     </div>

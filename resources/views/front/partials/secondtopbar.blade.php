@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <ul class="tn-left">
-                        <li><i style="color:black;" class="fa fa-phone"></i> 072 9090 230</li>
+                        <li><i style="color:black;" class="fa fa-phone"></i> 072 0000 000</li>
                         <li><i style="color:black;" class="fa fa-envelope"></i> office.Ajmal@jaidam.com</li>
                     </ul>
                 </div>

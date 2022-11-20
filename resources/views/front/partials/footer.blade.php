@@ -23,7 +23,7 @@
                     <div class="ft-contact">
                         <h6>Contact</h6>
                         <ul>
-                            <li>072 9090 230</li>
+                            <li>072 0000 000</li>
                             <li>office.Ajmal@jaidam.com</li>
                             <li>856 Zone, Thailanda Ap. 35633, ASIA</li>
                         </ul>
